@@ -4,9 +4,58 @@ import "./App.css";
 import "./index.js"
 import styled from 'styled-components'
 
+//SIMPLE STYLES
 
-const styledImg = styled.div`
+const StyledExplanation = styled.p`
+
+
+`
+
+const StyledH2 = styled.h2`
+  font-size:2.3rem;
+  
+  &:hover {
+    transform: scale(1.2);
+    transition: all 0.5s ease-in;
+  }
+  transition: all 0.5s ease-in-out;
+
+
+
+`
+const StyledDiv = styled.div`
+  display:flex;
+  flex-flow:column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  
+
+`
+
+const StyledCP = styled.p`
+  color:black;
+  font-size:.8rem;
+
+
+
+`
+const StyledH1 = styled.h1`
+  color: #7278AD;
+  font-size:3rem;
+
+  &:hover {
+    color: #003874;
+    transform: scale(1.2);
+    transition: all 0.3s ease-in;
+  }
+  transition: all 0.3s ease-in-out;
+
+`
+const StyledNasaImg = styled.div`
   color: red;    
+  font-family: sans-serif;
+  
     
 `
 
@@ -44,9 +93,9 @@ function App() {
     //  Nasa Image Explanation Component
     function NasaExp(props) {
       return (
-        <p>
+        <StyledExplanation>
           {props.explanation}
-        </p>
+        </StyledExplanation>
       )
     }
 
@@ -60,11 +109,11 @@ function App() {
     //  Nasa Image Info Component
     function NasaImgInfo(props) {
       return (
-        <div className='imgInfo'>
+        <StyledNasaImg>
           <NasaExp explanation={props.explanation}/>
           <NasaHD hdurl={props.hdurl} />
-          <p className='copy'>Copyright &#169;{props.copyright}</p>
-        </div>
+          <StyledCP>Copyright &#169;{props.copyright}</StyledCP>
+        </StyledNasaImg>
       )
     }
 
@@ -74,21 +123,21 @@ function App() {
     //  Final Output
     return (
       
-      <div>
-        <h1>NASA's Photo of the Day</h1>
+      <StyledDiv>
+        <StyledH1>NASA's Photo of the Day</StyledH1>
         <NasaImg 
           url={data.url} 
           alt={data.title} 
           hdurl={data.hdurl} 
         />
         
-        <h2>{data.title}</h2>
+        <StyledH2>{data.title}</StyledH2>
         <NasaImgInfo 
           copyright={data.copyright} 
           explanation={data.explanation} 
           hdurl={data.hdurl} 
         />
-      </div>
+      </StyledDiv>
     )
 }
 
