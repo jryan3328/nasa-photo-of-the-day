@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "./App.css";
 import "./index.js"
+import styled from 'styled-components'
+
+
+const styledImg = styled.div`
+  color: red;    
+    
+`
+
+
+
 
 function App() {
     const [data, setData] = useState([]);
@@ -58,16 +68,20 @@ function App() {
       )
     }
 
+
+
+
     //  Final Output
     return (
       
-      <div className='App'>
+      <div>
         <h1>NASA's Photo of the Day</h1>
         <NasaImg 
           url={data.url} 
           alt={data.title} 
           hdurl={data.hdurl} 
         />
+        
         <h2>{data.title}</h2>
         <NasaImgInfo 
           copyright={data.copyright} 
